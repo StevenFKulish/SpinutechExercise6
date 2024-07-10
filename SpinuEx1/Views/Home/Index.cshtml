@@ -1,0 +1,23 @@
+﻿@model SpinuEx1.Models.PalindromeTest
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form>
+    @Html.AntiForgeryToken()
+    <div class="text-center">
+        <h1 class="display-4">Spinutech Code Exercise</h1>
+        <p style="margin-bottom: 60px;">This accepts a positive number (integer) as its input and will decide whether that number is a palindrome.</p>
+        @Html.LabelFor(m => m.InputNumeric)
+        @Html.TextBoxFor(m => m.InputNumeric)
+        <input type="submit" value="Palindrome Check" formaction="/Home/Index" formmethod="post" />
+        <div style="color: red; height: 40px;">
+            @{
+                @Html.DisplayFor(m => m.ErrorMessage)
+            }
+        </div>
+
+        @Html.LabelFor(m => m.Result, new { style = "text-decoration: underline;" })
+        <p>@Html.DisplayFor(m => m.Result)</p>
+    </div>
+</form>
